@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shawn.io</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Shawn Gao</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Shawn Gao</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assets/profile-pic.png" alt="Shawn profile picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Shawn Gao</h1>
+        <p class="section__text__p2">Software Development Engineer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Shawn_Gao_CV.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/shawngao2000'"
+          />
+          <img
+            src="./assets/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/Bmeng233'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2+ years <br />Unity/XR/Front-end Development </p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>B.Eng. Computer Science<br />Master of Digital Media<br />UBC | SFU | ECUAD | BCIT</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              👋Hi, I'm Shawn👨‍💻, a passionate developer with expertise in interactive technologies. 
+              
+              <br><br>With a strong grasp of programming (C++, C#, Java, Python, etc.), along with experience in diverse projects such as VR/AR 🕶️, web 🌐, 
+              Machine Learning, and hardware development 🛠️, I am enthusiastic about delving deeper into this industry and making meaningful 
+              contributions through my coding skills. Currently pursuing my master's degree at CDM🎓.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Languages</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>C#</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Java</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Swift</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Skills</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Unity</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Machine<br>Learning</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Hardware</h3>
+                  <p>Basic</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assets/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/simulator-pic.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+
+              <h2 class="experience-sub-title project-title">VR Automotive Training Simulator</h2>
+              <div class="btn-container">
+                <!-- Project 1 -->
+                <button id="btn1" class="btn btn-color-2 read-more">Read More</button>
+                
+                <button
+                  class="btn btn-color-2 project-btn"
+                  onclick="location.href='https://github.com/'"
+                >
+                  YouTube
+                </button>
+              </div>
+
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/HCI-pic.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">HCI System Based on Hand Gesture Recognition</h2>
+            <div class="btn-container">
+              <!-- Project 2 -->
+              <button id="btn2" class="btn btn-color-2 read-more">Read More</button>
+              
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/muralviewar-pic.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">MuralView AR</h2>
+            <div class="btn-container">
+              <button id="btn3" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/pHgnSxi_m_A'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/Enchantia-pic.jpg"
+                alt="Project 4"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Enchantia (Vision OS)</h2>
+            <div class="btn-container">
+              <button id="btn4" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Bmeng233/Enchantia'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/cubus-pic2.png"
+                alt="Project 5"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Cubus</h2>
+            <div class="btn-container">
+              <button id="btn5" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/SceneSynthMR-pic1.png"
+                alt="Project 6"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">SceneSynth MR</h2>
+            <div class="btn-container">
+              <button id="btn6" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Bmeng233/SceneSynth-MR'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/EcoGuardians2.png"
+                alt="Project 7"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">EcoGuardian</h2>
+            <div class="btn-container">
+              <button id="btn7" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/NZLirhEJdHY'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/rootos-pic.png"
+                alt="Project 8"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Root OS</h2>
+            <div class="btn-container">
+              <button id="btn8" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://chocolate-kami.itch.io/root-user'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assets/echoes-pic.png"
+                alt="Project 9"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Echoes of The Gulf</h2>
+            <div class="btn-container">
+              <button id="btn9" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/dkmviB5JpeQ'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assets/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="shawngaodev@outlook.com">shawngaodev@outlook.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assets/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com/in/shawngaosde">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Shawn Gao. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+
+    <!-- Project 1 -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>Automotive EV Training Simulator</h1>
+        <h3>Centre for Digital Media | Vancouver Community College</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          The Virtual Reality (VR) simulation developed for Vancouver Community College’s Automotive Services represents a cutting-edge training tool 
+          tailored to the burgeoning field of electric vehicle (EV) maintenance and repair. This initiative aligns with Canada's legislative push towards 
+          zero-emission vehicles by 2035, addressing the critical need for skilled EV technicians. 
+          The simulation, crafted using Unity, provides an immersive learning environment where students can safely practice the processes involved in changing 
+          and repairing EV batteries. By circumventing the traditional constraints of physical training—which requires substantial instructor oversight due to the 
+          risks of injury, fire, and electrocution—our VR tool enables students to master complex skills in a controlled, hazard-free setting.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>
+          As the Lead Developer, I oversaw the technical aspects of the Virtual Reality (VR) simulation project, which was developed and tested on the Oculus Quest series. This choice utilized the platform's strong performance capabilities and broad accessibility. My primary focus was on ensuring a robust system, emphasizing code stability and smooth development collaboration.
+          <br><br>
+          From an architectural standpoint, I ensured the simulation was designed for scalability, anticipating future expansions to include various vehicle types and educational applications. The system architecture utilized the observer pattern and maintained a clear class inheritance structure, which allowed for efficient updates and extensions. Additionally, I facilitated effective communication with the UX Designer and the development team to ensure the project was delivered smoothly and accurately. Regular coordination and alignment of team efforts with project goals were essential, ensuring adherence to user experience principles and successful project execution.
+        </p>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>HCI System Based on Hand Gesture Recognition</h1>
+        <h3>Research | Thesis</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          As part of my graduation thesis, this project focused on the integration of advanced computer vision and haptic feedback technologies into a cohesive virtual reality (VR) experience. The research involved implementing a computer vision recognition algorithm using the Yolo-v5 model to achieve real-time recognition of custom gestures. This was complemented by the development and testing of haptic feedback gloves, which were based on an open-source project.
+          <br><br>
+          I successfully adapted the hardware to interface seamlessly with the Oculus Quest and supported its functionality within the VR game, Half-Life: Alyx. This integration allowed for the real-time reconstruction of hand skeleton information, enhancing the immersive experience by providing tactile feedback corresponding to the user's movements and interactions within the game.
+          <br><br>
+          The culmination of this project was a comprehensive research paper that detailed the methodologies employed, the development process, and the implications of this technology in enhancing VR interactions. This work not only served as my graduation thesis but also contributed to the field of VR by demonstrating practical applications of machine learning in gesture recognition and tactile feedback technology.
+        </p>
+        <!-- add video -->
+        <video width="100%" height="auto" autoplay muted loop>
+          <source src="./assets/hic-vid2k.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <!-- project 3 -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>MuralView AR</h1>
+        <h3>Centre for Digital Media | AR App</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          The MuralView AR project was designed to elevate the experience of mural tours through the integration of Augmented Reality (AR) technology. As a developer on this project, I contributed to building an Android application using Unity and Vuforia Engine, specifically focused on enhancing users' engagement with murals. Our AR features allow users to view murals without physical view obstructions and provide a digital interaction layer that can reveal deeper insights into the artwork.
+          <br><br>
+          A key objective was to digitally preserve the murals and archive the artists' works for future AR showcases. This not only aids in conservation efforts but also makes art accessible to a broader audience, regardless of their physical location. Through the application, users can appreciate and interact with murals in a novel way, combining the real-world art with digital enhancements and information that enrich the viewing experience.
+        </p>
+        <br>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/pHgnSxi_m_A?si=aDXA83-d3Wco2JM1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      
+        </div>
+        
+
+      </div>
+    </div>
+
+    <!-- project 4 -->
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>Enchantia (Vision OS)</h1>
+        <h3>Personal Project | MR App</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          Enchantia, a sophisticated floral arrangement simulator, was developed for Vision Pro using Vision OS. As the lead front-end developer, I played a crucial role in shaping the user experience and interface of the application, utilizing native Swift and RealityKit to ensure a seamless integration into the home environment. Users of Enchantia can propagate and arrange flowers in various vases, creatively enhancing their living spaces with virtual blooms that react to real-world conditions.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>My responsibilities included not only the aesthetic and functional aspects of the application's front-end but also the implementation of intuitive gesture interactions. These gestures allow users to interact naturally with the virtual elements, mimicking the tactile experience of handling real flowers. The application's immersive experience is designed to encourage creativity and bring a sense of tranquility and natural beauty into users' homes.
+        </p>
+      </div>
+    </div>
+
+    <!-- project 5 -->
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>Cubus</h1>
+        <h3>Personal Project | VR/MR Game Prototype</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          Cubus is a personal project—a VR puzzle game developed independently for the Oculus Quest, drawing inspiration from the art movement "Cubism." This game challenges players to assemble increasingly complex shapes from colored blocks within a serene and relaxing virtual environment. The design focuses on simplicity and tranquility, complemented by soothing music that enhances the overall Zen-like vibe.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>
+          As the sole developer, I was responsible for all aspects of the game's design and development. The game capitalizes on the Oculus Quest's hand tracking technology, offering an intuitive and immersive experience that allows players to interact with the game elements in a natural, hands-on manner.
+        </p>
+        <br>
+
+      </div>
+    </div>
+
+    <!-- project 6 -->
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>SceneSynth MR</h1>
+        <h3>Centre for Digital Media | MR App</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          SceneSynth MR is a mixed-reality prototype that revolutionizes AI music creation, developed for the Meta Quest using its passthrough feature to merge real and digital worlds. This immersive app allows users to generate music by inputting prompts, which are then visualized with vibrant MR visuals, enhancing the user experience. Unique to SceneSynth MR are collectible mascots, which vary based on the music and settings, adding a layer of personalization and fun. The platform also caters to Gen-Z’s connectivity needs, positioning itself not just as an application but as a community for social interaction and engagement.
+          <br><br>
+          Developed in just four weeks, this prototype showcases the effective use of the Meta Quest's passthrough feature to create a compelling mixed-reality (MR) environment. This foundational work lays the groundwork for potential full-scale development, with future plans to more comprehensively integrate real-time generative AI music features into the MR framework.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>
+          As the lead developer, I was responsible for designing the core mechanics of the application and implementing the interactive features that drive the user experience. This included developing the music generation algorithm, integrating the passthrough feature, and creating the visual effects that enhance the MR environment. I also worked on optimizing the application for performance and user engagement, ensuring that it could run smoothly on the Meta Quest and provide an immersive and enjoyable experience for users.
+        </p>
+      </div>
+    </div>
+
+    <!-- project 7 -->
+    <div id="modal7" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>EcoGuardian</h1>
+        <h3>Centre for Digital Media | Game Prototype</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          EcoGuardians is an innovative 3D role-playing game designed for children, developed using Unity to teach environmental stewardship in an engaging and interactive manner. Currently available as a prototype, the game introduces players to three distinct scenarios where they make choices that impact the environment. This foundational stage aims to inspire young players to make responsible decisions while highlighting the consequences of their actions.
+          <br><br>
+          As a versatile educational tool, EcoGuardians has the potential to evolve across multiple platforms, including websites, mobile games, AR/VR experiences, and even as part of interactive installations in educational centers. This adaptability ensures that the game can reach a broad audience and integrate seamlessly into various learning environments.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>
+          As the lead developer, I was responsible for designing the game mechanics and implementing the core gameplay features. This included developing the interactive scenarios, character animations, and environmental assets that bring the game world to life. I also worked on integrating educational content into the game, ensuring that players receive valuable information about environmental issues and conservation efforts.
+        </p>
+        <br>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/NZLirhEJdHY?si=RakQ_LdeqThAYnIJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 8 -->
+    <div id="modal8" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>Root OS</h1>
+        <h3>Personal Project | Game Prototype</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          Root OS is a personal project that explores the development of a custom operating system for embedded devices. The project aims to create a lightweight and efficient operating system that can run on low-power devices such as IoT sensors and microcontrollers. Root OS is designed to provide a secure and stable platform for running custom applications and services.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>
+          As the lead developer on the project, I focused on designing the architecture and core components of the operating system. This involved developing a custom kernel, file system, and device drivers that could support a wide range of hardware configurations. I also worked on optimizing the operating system for performance and security, ensuring that it could run efficiently on resource-constrained devices.
+        </p>
+        <br>
+        <p><b>Live Demo:</b></p>
+        <p>
+          <a href="https://chocolate-kami.itch.io/root-user" class="blue-link">Root OS Live Demo</a>
+        </p>
+        <br>
+      </div>
+    </div>
+
+    <!-- project 9 -->
+    <div id="modal9" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Project</p>
+        <h1>Echoes of The Gulf</h1>
+        <h3>Personal Project | Game Prototype</h3>
+        <br>
+        <p><b>Project Description:</b></p>
+        <p>
+          Echoes of The Gulf is a virtual reality (VR) documentary that explores the impact of climate change on the Gulf of Mexico. The project aims to raise awareness about environmental issues in the region and highlight the stories of local communities affected by climate change. Through immersive storytelling and interactive experiences, viewers can learn about the challenges facing the Gulf and the efforts being made to protect its ecosystems.
+        </p>
+        <br>
+        <p><b>My Contributions:</b></p>
+        <p>
+          As the creator of the project, I was responsible for all aspects of its development, from concept design to final production. This involved researching the environmental issues facing the Gulf of Mexico, conducting interviews with local residents and experts, and filming and editing the VR footage. I also worked on integrating interactive elements into the documentary, allowing viewers to explore the environment and learn more about the issues presented.
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
