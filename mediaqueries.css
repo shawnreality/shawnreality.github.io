@@ -116,7 +116,7 @@
 
 
 
-/* @media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .details-container {
     flex: 0 0 calc(50% - 10px);
   }
@@ -143,5 +143,5 @@
     width: 100%; 
   }
 }
-*/
+
 
