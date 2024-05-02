@@ -115,20 +115,12 @@
 }
 
 
-
-@media screen and (max-width: 1200px) {
-  .details-container {
-    flex: 0 0 calc(50% - 10px);
-  }
+.details-container {
+  flex: 0 0 calc(33.333% - 10px); /* 10px is the gap, adjust as needed */
+  margin: 5px; /* Half of the gap */
+  width: calc(33.333% - 10px); /* Set the width */
+  height: auto; /* Set the height to auto to maintain aspect ratio */
 }
-
-@media screen and (max-width: 600px) {
-  .details-container {
-    flex: 0 0 100%;
-  }
-}
-
-
 
 @media screen and (max-width: 1200px) {
   .details-container {
