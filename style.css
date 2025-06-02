@@ -356,7 +356,7 @@ section {
 
 .about-containers {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin: 2rem 0;
 }
@@ -471,7 +471,7 @@ article .icon {
 }
 
 /* 项目卡片网格布局 */
-.about-containers {
+.about-containers.project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
