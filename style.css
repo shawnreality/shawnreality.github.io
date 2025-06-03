@@ -171,12 +171,12 @@ a:hover {
 a::after {
   content: "";
   position: absolute;
-  bottom: -0.5rem;
+  bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(121, 200, 219, 0.3);
+  box-shadow: 0 0 3px rgba(121, 200, 219, 0.3);
   transition: var(--transition-medium);
 }
 
@@ -1509,7 +1509,6 @@ html.modal-open {
 }
 
 .tech-highlight {
-  color: var(--primary-color);
   font-weight: 600;
 }
 
@@ -1599,4 +1598,15 @@ article div h3 {
   .experience-details-container {
     gap: 1.3rem;
   }
+}
+
+.bio-content a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+}
+
+.bio-content a:hover {
+  color: var(--primary-color);
 }
