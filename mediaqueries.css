@@ -3,9 +3,9 @@
 /* 大型显示器 (1201px 及以上) */
 @media screen and (min-width: 1201px) {
   #profile {
-    min-height: 83vh;
+    min-height: auto;
     height: auto;
-    margin-bottom: 6rem;
+    padding-bottom: 6rem;
   }
   
   .about-containers.project-grid {
@@ -45,9 +45,9 @@
 /* 中型显示器和平板横屏 (651px - 1200px) */
 @media screen and (min-width: 651px) and (max-width: 1200px) {
   #profile {
-    min-height: 83vh;
+    min-height: auto;
     height: auto;
-    margin-bottom: 6rem;
+    padding-bottom: 6rem;
   }
   
   /* About Me和Experience部分在平板尺寸就变为一列布局 */
@@ -143,13 +143,14 @@
 /* 平板竖屏和手机设备 (650px 及以下) */
 @media screen and (max-width: 650px) {
   #profile {
-    min-height: 83vh;
+    /* 移除固定最小高度，让内容自然拓展 */
+    min-height: auto;
     height: auto;
     margin-bottom: 0;
     display: block;
-    padding: 4vh 5% 6vh; /* 增加底部padding */
-    overflow-x: hidden;
-    position: relative; /* 确保定位上下文正确 */
+    padding: 4vh 5% 6vh;
+    /* 删除overflow-x属性，避免创建独立的滚动上下文 */
+    position: relative;
   }
   
   /* 确保图片容器在小屏幕上居中且不会影响滚动 */

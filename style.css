@@ -80,19 +80,19 @@ body {
   background-color: var(--dark-bg);
   color: var(--text-color);
   line-height: 1.6;
-  overflow-x: hidden; /* 防止横向滚动 */
+  overflow-x: hidden;
   background-image: 
     linear-gradient(to right, rgba(121, 200, 219, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(121, 200, 219, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
-  scroll-behavior: smooth;
-  overflow-x: hidden; /* 防止横向滚动 */
-  height: auto; /* 允许内容自然展开 */
-  position: relative; /* 建立定位上下文 */
+  min-height: 100vh;
+  position: relative;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  height: 100%;
 }
 
 p {
@@ -286,11 +286,12 @@ a:hover::after {
 section {
   padding-top: 4vh;
   height: auto;
-  min-height: fit-content;
+  min-height: auto; /* 使用auto而非fit-content */
   margin: 0 10rem;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
+  opacity: 1 !important; /* 确保section始终可见 */
 }
 
 .section-container {
@@ -303,7 +304,7 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  min-height: 90vh;
+  min-height: auto;
   height: auto;
   background-color: var(--dark-bg);
   background-image: radial-gradient(circle at 10% 20%, rgba(121, 200, 219, 0.03) 0%, transparent 80%);
@@ -312,6 +313,7 @@ section {
   box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
   z-index: 1;
+  /* 确保不会创建独立滚动上下文 */
   overflow: visible;
 }
 
@@ -324,8 +326,8 @@ section {
   width: 100%;
   height: 120px;
   background: linear-gradient(to bottom, var(--dark-bg), var(--dark-bg-lighter));
-  z-index: 1; /* 稍微提高z-index */
-  pointer-events: none; /* 确保该元素不会拦截鼠标事件 */
+  z-index: 1; 
+  pointer-events: none; /* 确保该元素不会拦截鼠标事件和触摸事件 */
 }
 
 .section__pic-container {

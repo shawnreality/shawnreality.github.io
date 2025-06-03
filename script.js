@@ -34,23 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const windowHeight = window.innerHeight;
       
       if (sectionTop < windowHeight - 100) {
-        section.style.opacity = '1';
-        section.style.transform = 'translateY(0)';
+        // 使用requestAnimationFrame确保动画平滑且不阻塞滚动
+        requestAnimationFrame(() => {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        });
       }
     });
   };
   
-  // Set initial styles
-  const sections = document.querySelectorAll('section');
-  sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  });
-  
   // Run on load and scroll
   animateOnScroll();
-  window.addEventListener('scroll', animateOnScroll);
+  
+  // 使用passive: true确保滚动事件不会被阻止
+  window.addEventListener('scroll', animateOnScroll, { passive: true });
 });
 
 window.onload = function() {
