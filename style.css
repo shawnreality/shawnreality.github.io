@@ -1470,7 +1470,7 @@ html.modal-open {
 
 /* 个人简介样式 */
 .intro-text {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   margin-bottom: 0.5rem;
   line-height: 1.2;
   color: var(--text-color);
