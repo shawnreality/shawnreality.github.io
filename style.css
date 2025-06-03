@@ -927,13 +927,14 @@ footer .nav-links a {
 .modal-content {
   background-color: var(--dark-bg-lighter);
   margin: 5% auto;
-  padding: 2rem;
+  padding: 0; /* 移除内边距，使用内部容器控制 */
   border-radius: 1rem;
   width: 90%;
   max-width: 1200px;
   box-shadow: var(--shadow-medium);
   animation: modalFadeIn 0.5s ease;
   border: none;
+  overflow: hidden; /* 确保圆角边缘内容不溢出 */
 }
 
 @keyframes modalFadeIn {
@@ -947,12 +948,70 @@ footer .nav-links a {
   }
 }
 
-.close {
+/* 项目弹窗标题栏 */
+.modal-header {
+  background: linear-gradient(135deg, var(--dark-bg), var(--medium-bg));
+  padding: 1.5rem 2rem;
+  position: relative;
+  border-bottom: 1px solid rgba(121, 200, 219, 0.1);
+}
+
+/* 项目标签 */
+.modal-header p {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.5rem 0;
+  opacity: 0.8;
+}
+
+/* 项目标题 */
+.modal-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 项目副标题 */
+.modal-header h3 {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+  font-weight: normal;
   color: var(--text-secondary);
-  float: right;
+}
+
+/* 项目内容区域 */
+.modal-body {
+  padding: 2rem;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* 改进关闭按钮 */
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--text-secondary);
   font-size: 2rem;
   font-weight: bold;
   transition: var(--transition-fast);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(121, 200, 219, 0.05);
+  z-index: 10;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .close:hover,
@@ -961,6 +1020,103 @@ footer .nav-links a {
   text-decoration: none;
   cursor: pointer;
   transform: rotate(90deg);
+  background-color: rgba(121, 200, 219, 0.15);
+}
+
+/* 项目章节(段落)样式 */
+.project-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+
+.project-section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(121, 200, 219, 0.2), transparent);
+}
+
+/* 项目章节标题 */
+.project-section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.project-section-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color);
+  margin-right: 0.8rem;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(121, 200, 219, 0.5);
+}
+
+/* 改进项目图片样式 */
+.modal-content img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  transition: transform 0.3s ease;
+  margin: 1rem 0;
+}
+
+.modal-content img:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-colored);
+}
+
+/* 技术标签样式 */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.tech-tag {
+  background-color: rgba(121, 200, 219, 0.1);
+  color: var(--primary-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background-color: rgba(121, 200, 219, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 改进视频容器在模态框中的样式 */
+.modal-body .video-container {
+  margin: 2rem 0;
+  box-shadow: var(--shadow-medium);
+  border-radius: 0.8rem;
+}
+
+/* 列表样式 */
+.modal-body ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.modal-body ul li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.modal-body ul li::marker {
+  color: var(--primary-color);
 }
 
 /* ADDITIONAL STYLES */
@@ -1223,4 +1379,67 @@ html.modal-open {
     position: fixed;
     width: 100%;
   }
+}
+
+/* 模态框响应式样式 */
+@media screen and (max-width: 768px) {
+  .modal-content {
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .modal-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  .modal-body .video-container {
+    margin: 1rem 0;
+  }
+  
+  .project-section-title {
+    font-size: 1.1rem;
+  }
+  
+  .tech-tags {
+    margin-bottom: 1.5rem;
+  }
+  
+  .close {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+}
+
+/* 添加滚动条样式 */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: rgba(121, 200, 219, 0.05);
+  border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: rgba(121, 200, 219, 0.2);
+  border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(121, 200, 219, 0.4);
 }
