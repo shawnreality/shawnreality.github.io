@@ -7,6 +7,9 @@ function toggleMenu() {
 
 // Animate elements when they come into view
 document.addEventListener('DOMContentLoaded', function() {
+  // Use requestAnimationFrame for better scroll performance
+  let ticking = false;
+  
   const animateOnScroll = function() {
     const sections = document.querySelectorAll('section');
     
@@ -22,13 +25,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
     });
+    
+    ticking = false;
   };
   
   // Run on load and scroll
   animateOnScroll();
   
-  // 使用passive: true确保滚动事件不会被阻止
-  window.addEventListener('scroll', animateOnScroll, { passive: true });
+  // 使用passive: true确保滚动事件不会被阻止，并使用requestAnimationFrame避免频繁触发
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        animateOnScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 });
 
 window.onload = function() {
@@ -50,11 +63,10 @@ window.onload = function() {
         modals[i].style.opacity = "1";
       }, 50); // Wait a bit for the display change to take effect
       
-      // 锁定滚动条的改进方式
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      // 锁定滚动条的改进方式 - use a better approach
+      // Store the scroll position instead of fixed position
+      document.documentElement.classList.add('modal-open');
+      // This class will be used for CSS to prevent body scrolling
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -65,11 +77,8 @@ window.onload = function() {
         modals[i].style.display = "none";
         
         // 恢复滚动位置的改进方式
-        const scrollY = parseInt(document.body.style.top || '0') * -1;
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollY);
+        document.documentElement.classList.remove('modal-open');
+        // Remove the class that prevents scrolling
       }, 500); // Wait for the transition to finish before hiding the modal
     }
   }
@@ -84,11 +93,8 @@ window.onload = function() {
           modals[i].style.display = "none";
           
           // 恢复滚动位置的改进方式
-          const scrollY = parseInt(document.body.style.top || '0') * -1;
-          document.body.style.position = '';
-          document.body.style.top = '';
-          document.body.style.width = '';
-          window.scrollTo(0, scrollY);
+          document.documentElement.classList.remove('modal-open');
+          // Remove the class that prevents scrolling
         }, 500); // Wait for the transition to finish before hiding the modal
       }
     }
@@ -295,13 +301,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 只在页面初始加载和完成滚动后调整，而不是在滚动过程中
   window.addEventListener('load', adjustProfileAboutTransition);
-  // 使用更温和的滚动监听方式，减少对滚动性能的影响
-  let scrollTimeout;
+  
+  // 使用requestAnimationFrame优化滚动事件处理
+  let rafPending = false;
   window.addEventListener('scroll', function() {
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout);
+    if (!rafPending) {
+      requestAnimationFrame(() => {
+        adjustProfileAboutTransition();
+        rafPending = false;
+      });
+      rafPending = true;
     }
-    scrollTimeout = setTimeout(adjustProfileAboutTransition, 200);
   }, { passive: true });
 
   // 项目过滤功能

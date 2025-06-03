@@ -80,27 +80,29 @@ body {
   background-color: var(--dark-bg);
   color: var(--text-color);
   line-height: 1.6;
-  overflow-x: hidden;
   /* 确保垂直方向可以自由滚动 */
   overflow-y: auto;
-  /* 防止过度滚动捕获 */
-  overscroll-behavior: none;
+  /* 防止过度滚动捕获 - this can cause issues in iOS embedded browsers */
+  /* overscroll-behavior: none; */
   background-image: 
     linear-gradient(to right, rgba(121, 200, 219, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(121, 200, 219, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
   min-height: 100vh;
   position: relative;
+  /* Better to use normal scrolling without any restrictions */
+  -webkit-overflow-scrolling: touch; /* Enable momentum scrolling on iOS */
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
   /* 确保整个页面可以滚动 */
   overflow-y: auto;
-  height: 100%;
-  /* 防止过度滚动捕获 */
-  overscroll-behavior: none;
+  /* height: 100%; */ /* This fixed height can cause issues */
+  /* 防止过度滚动捕获 - this can cause issues in iOS embedded browsers */
+  /* overscroll-behavior: none; */
+  /* Better to use normal scrolling behavior */
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling on orientation change */
 }
 
 p {
@@ -324,7 +326,7 @@ section {
   /* 确保不会创建独立滚动上下文 */
   overflow: visible;
   /* 防止任何奇怪的滚动捕获行为 */
-  overscroll-behavior: none;
+  /* overscroll-behavior: none; */
 }
 
 /* 增强连接元素效果 */
@@ -1208,4 +1210,17 @@ footer .nav-links a {
 #typewriter {
   min-height: 1.75rem;
   display: inline-block;
+}
+
+/* Modal open state - prevent body scrolling */
+html.modal-open {
+  overflow: hidden;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* iOS specific fix for momentum scrolling */
+  html.modal-open {
+    position: fixed;
+    width: 100%;
+  }
 }
