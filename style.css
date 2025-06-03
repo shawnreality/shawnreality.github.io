@@ -321,10 +321,10 @@ section {
 #profile::after {
   content: "";
   position: absolute;
-  bottom: -70px;
+  bottom: var(--profile-after-bottom, -70px); /* 使用CSS变量，默认值为-70px */
   left: 0;
   width: 100%;
-  height: 120px;
+  height: var(--profile-after-height, 120px); /* 使用CSS变量，默认值为120px */
   background: linear-gradient(to bottom, var(--dark-bg), var(--dark-bg-lighter));
   z-index: 1; 
   pointer-events: none; /* 确保该元素不会拦截鼠标事件和触摸事件 */
@@ -337,6 +337,19 @@ section {
   margin: auto 0;
   position: relative;
   z-index: 1;
+}
+
+/* 为profile部分的照片容器单独设置样式，确保在没有照片时也能保持形状 */
+#profile .section__pic-container {
+  /* 
+   * 以下样式是为了在没有个人照片的情况下维持布局
+   * 如果恢复照片，可以考虑移除这些样式
+   */
+  background-color: rgba(121, 200, 219, 0.05);
+  border-radius: 50%;
+  box-shadow: var(--shadow-light);
+  justify-content: center;
+  align-items: center;
 }
 
 .section__pic-container img {

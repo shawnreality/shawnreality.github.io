@@ -148,6 +148,49 @@ document.addEventListener('DOMContentLoaded', () => {
   
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+  // 确保profile和about部分之间的正确过渡
+  function adjustProfileAboutTransition() {
+    const profile = document.getElementById('profile');
+    const about = document.getElementById('about');
+    const profileAfter = window.getComputedStyle(profile, '::after');
+    
+    // 只在小屏幕上应用这个逻辑
+    if (window.innerWidth <= 900) {
+      // 获取profile的实际高度
+      const profileHeight = profile.offsetHeight;
+      const profileBottom = profile.getBoundingClientRect().bottom;
+      const viewportHeight = window.innerHeight;
+      
+      // 如果profile的高度超过视口高度或者内容较多
+      if (profileHeight > viewportHeight * 0.7 || profileHeight > 500) {
+        // 调整profile::after伪元素 (通过CSS变量)
+        profile.style.setProperty('--profile-after-height', '30px');
+        profile.style.setProperty('--profile-after-bottom', '-15px');
+        
+        // 调整about部分的margin和padding
+        about.style.marginTop = '-15px';
+        about.style.paddingTop = '30px';
+      } else {
+        // 恢复默认值
+        profile.style.removeProperty('--profile-after-height');
+        profile.style.removeProperty('--profile-after-bottom');
+        about.style.removeProperty('marginTop');
+        about.style.removeProperty('paddingTop');
+      }
+    } else {
+      // 大屏幕恢复默认样式
+      profile.style.removeProperty('--profile-after-height');
+      profile.style.removeProperty('--profile-after-bottom');
+      about.style.removeProperty('marginTop');
+      about.style.removeProperty('paddingTop');
+    }
+  }
+  
+  // 在加载、调整窗口大小和滚动时调整
+  adjustProfileAboutTransition();
+  window.addEventListener('resize', adjustProfileAboutTransition);
+  window.addEventListener('scroll', adjustProfileAboutTransition);
+
   // 项目过滤功能
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectItems = document.querySelectorAll('.details-container.color-container');

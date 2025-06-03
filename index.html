@@ -42,7 +42,16 @@
       <div class="parallax-decoration decoration-1"></div>
       <div class="parallax-decoration decoration-2"></div>
       <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Shawn profile picture" />
+        <!-- 
+          暂时注释掉个人照片以解决移动端滚动问题
+          恢复方法:
+          1. 删除这段注释
+          2. 取消下面的img标签注释
+          3. 如果已经适应了没有照片的布局，可以考虑调整相关CSS:
+             - style.css中的.section__pic-container
+             - mediaqueries.css中针对不同屏幕尺寸的.section__pic-container
+        -->
+        <!-- <img src="./assets/profile-pic.png" alt="Shawn profile picture" /> -->
       </div>
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>

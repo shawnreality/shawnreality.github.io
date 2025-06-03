@@ -118,13 +118,39 @@
   }
   
   #profile {
-    padding: 4vh 5% 0; /* 减少左右内边距，使用百分比适应不同屏幕宽度 */
+    padding: 4vh 5% 6vh; /* 增加底部内边距，确保有足够空间 */
+    min-height: auto;
+    height: auto;
   }
   
+  /* 修改profile与about之间的连接 */
+  #profile::after {
+    --profile-after-height: 60px; /* 使用CSS变量 */
+    --profile-after-bottom: -30px; /* 使用CSS变量 */
+  }
+  
+  #about {
+    margin-top: -30px; /* 调整为与profile::after的bottom值匹配 */
+    padding-top: 50px; /* 确保内容不会被profile::after遮挡 */
+  }
+  
+  /* 确保图片容器在小屏幕上居中且不会影响滚动 */
   .section__pic-container {
-    width: 275px;
-    height: 275px;
+    width: 250px;
+    height: 250px;
     margin: 0 auto 2rem;
+    position: relative; /* 确保定位正确 */
+  }
+  
+  /* 为profile部分的照片容器设置特定样式 */
+  #profile .section__pic-container {
+    /* 在小屏幕上完全隐藏profile照片容器 */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none; /* 完全不显示元素 */
   }
   
   .title {
@@ -137,6 +163,18 @@
   
   .arrow {
     display: none;
+  }
+  
+  /* 在没有照片的情况下调整文本布局 */
+  #profile .section__text {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  
+  #profile .section__text__p1 {
+    padding-top: 0; /* 移除顶部内边距，因为不再需要与照片对齐 */
   }
 }
 
@@ -153,12 +191,36 @@
     position: relative;
   }
   
+  /* 进一步调整profile和about之间的连接 */
+  #profile::after {
+    --profile-after-height: 40px; /* 使用CSS变量 */
+    --profile-after-bottom: -20px; /* 使用CSS变量 */
+  }
+  
+  #about {
+    margin-top: -20px; /* 与profile::after的bottom值匹配 */
+    padding-top: 40px; /* 确保内容不会被profile::after遮挡 */
+    padding-bottom: 4vh;
+    min-height: auto; /* 移除最小高度限制 */
+  }
+  
   /* 确保图片容器在小屏幕上居中且不会影响滚动 */
   .section__pic-container {
     width: 250px;
     height: 250px;
     margin: 0 auto 2rem;
     position: relative; /* 确保定位正确 */
+  }
+  
+  /* 为profile部分的照片容器设置特定样式 */
+  #profile .section__pic-container {
+    /* 在小屏幕上完全隐藏profile照片容器 */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none; /* 完全不显示元素 */
   }
   
   /* 修改About部分设置，确保它可以正常接收滚动 */
@@ -258,12 +320,6 @@
     font-size: 1.1rem;
   }
   
-  .section__pic-container {
-    width: 275px;
-    height: 275px;
-    margin: 0 auto 2rem;
-  }
-  
   .section__text__p2 {
     font-size: 1.25rem;
   }
@@ -301,6 +357,28 @@
   
   .text-container {
     text-align: justify;
+  }
+  
+  /* 在没有照片的情况下调整文本布局 */
+  #profile .section__text {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem 0 2rem; /* 小屏幕上减少上部内边距，增加底部内边距 */
+    text-align: center;
+  }
+  
+  #profile .section__text__p1 {
+    padding-top: 0;
+  }
+  
+  /* 调整标题大小，使其在小屏幕上显示更好 */
+  #profile .title {
+    font-size: 2.5rem;
+    margin: 0.5rem 0 1rem;
+  }
+  
+  #profile .section__text__p2 {
+    font-size: 1.3rem;
   }
 }
 
