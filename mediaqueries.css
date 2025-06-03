@@ -118,7 +118,7 @@
   }
   
   #profile {
-    padding: 4vh 5% 6vh; /* 增加底部内边距，确保有足够空间 */
+    padding: 8vh 5% 4vh; /* 增加顶部内边距，减少底部内边距 */
     min-height: auto;
     height: auto;
   }
@@ -186,9 +186,11 @@
     height: auto;
     margin-bottom: 0;
     display: block;
-    padding: 4vh 5% 6vh;
-    /* 删除overflow-x属性，避免创建独立的滚动上下文 */
+    padding: 6vh 5% 4vh; /* 调整内边距使布局更紧凑 */
     position: relative;
+    /* 确保滚动正常 */
+    overflow: visible;
+    overscroll-behavior: none;
   }
   
   /* 进一步调整profile和about之间的连接 */
@@ -227,6 +229,9 @@
   #about {
     position: relative;
     z-index: 2; /* 略高于profile::after */
+    /* 确保滚动正常 */
+    overflow: visible;
+    overscroll-behavior: none;
   }
   
   /* About Me部分在手机设备上变为一列布局 */

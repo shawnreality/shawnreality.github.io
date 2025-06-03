@@ -81,6 +81,10 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
+  /* 确保垂直方向可以自由滚动 */
+  overflow-y: auto;
+  /* 防止过度滚动捕获 */
+  overscroll-behavior: none;
   background-image: 
     linear-gradient(to right, rgba(121, 200, 219, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(121, 200, 219, 0.02) 1px, transparent 1px);
@@ -92,7 +96,11 @@ body {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* 确保整个页面可以滚动 */
+  overflow-y: auto;
   height: 100%;
+  /* 防止过度滚动捕获 */
+  overscroll-behavior: none;
 }
 
 p {
@@ -315,6 +323,8 @@ section {
   z-index: 1;
   /* 确保不会创建独立滚动上下文 */
   overflow: visible;
+  /* 防止任何奇怪的滚动捕获行为 */
+  overscroll-behavior: none;
 }
 
 /* 增强连接元素效果 */

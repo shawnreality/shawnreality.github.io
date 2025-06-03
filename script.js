@@ -5,25 +5,6 @@ function toggleMenu() {
   icon.classList.toggle("open");
 }
 
-// Add smooth scrolling for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    const targetId = this.getAttribute('href');
-    const targetElement = document.querySelector(targetId);
-    
-    if (targetElement) {
-      const offsetPosition = targetElement.offsetTop - 100;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
 // Animate elements when they come into view
 document.addEventListener('DOMContentLoaded', function() {
   const animateOnScroll = function() {
@@ -68,8 +49,12 @@ window.onload = function() {
       setTimeout(function() {
         modals[i].style.opacity = "1";
       }, 50); // Wait a bit for the display change to take effect
-      document.body.style.overflow = 'hidden'; // Lock the scroll bar
-      document.body.style.marginRight = '15px'; // Add a right margin to the body
+      
+      // 锁定滚动条的改进方式
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
     }
 
     // When the user clicks on <span> (x), close the modal
@@ -78,9 +63,14 @@ window.onload = function() {
       stopIframe();
       setTimeout(function() {
         modals[i].style.display = "none";
+        
+        // 恢复滚动位置的改进方式
+        const scrollY = parseInt(document.body.style.top || '0') * -1;
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
       }, 500); // Wait for the transition to finish before hiding the modal
-      document.body.style.overflow = 'auto'; // Unlock the scroll bar
-      document.body.style.marginRight = '0px'; // Remove the right margin from the body
     }
   }
 
@@ -92,9 +82,14 @@ window.onload = function() {
         stopIframe();
         setTimeout(function() {
           modals[i].style.display = "none";
+          
+          // 恢复滚动位置的改进方式
+          const scrollY = parseInt(document.body.style.top || '0') * -1;
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          window.scrollTo(0, scrollY);
         }, 500); // Wait for the transition to finish before hiding the modal
-        document.body.style.overflow = 'auto'; // Unlock the scroll bar
-        document.body.style.marginRight = '0px'; // Remove the right margin from the body
       }
     }
   }
@@ -121,13 +116,17 @@ function stopIframe() {
 
 // 添加视差滚动效果
 document.addEventListener('DOMContentLoaded', () => {
-  // 平滑滚动效果
+  // 平滑滚动效果 - 只保留一个滚动处理函数
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // 使用scrollIntoView而不是scrollTo，更兼容现代浏览器
+        target.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
       }
     });
   });
@@ -152,13 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function adjustProfileAboutTransition() {
     const profile = document.getElementById('profile');
     const about = document.getElementById('about');
-    const profileAfter = window.getComputedStyle(profile, '::after');
     
     // 只在小屏幕上应用这个逻辑
     if (window.innerWidth <= 900) {
       // 获取profile的实际高度
       const profileHeight = profile.offsetHeight;
-      const profileBottom = profile.getBoundingClientRect().bottom;
       const viewportHeight = window.innerHeight;
       
       // 如果profile的高度超过视口高度或者内容较多
@@ -186,10 +183,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
-  // 在加载、调整窗口大小和滚动时调整
+  // 添加节流函数以限制事件处理频率
+  function throttle(func, delay) {
+    let lastCall = 0;
+    return function(...args) {
+      const now = new Date().getTime();
+      if (now - lastCall < delay) {
+        return;
+      }
+      lastCall = now;
+      return func(...args);
+    }
+  }
+  
+  // 在加载和调整窗口大小时调整
   adjustProfileAboutTransition();
-  window.addEventListener('resize', adjustProfileAboutTransition);
-  window.addEventListener('scroll', adjustProfileAboutTransition);
+  window.addEventListener('resize', throttle(adjustProfileAboutTransition, 100));
+  
+  // 只在页面初始加载和完成滚动后调整，而不是在滚动过程中
+  window.addEventListener('load', adjustProfileAboutTransition);
+  // 使用更温和的滚动监听方式，减少对滚动性能的影响
+  let scrollTimeout;
+  window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+    scrollTimeout = setTimeout(adjustProfileAboutTransition, 200);
+  }, { passive: true });
 
   // 项目过滤功能
   const filterButtons = document.querySelectorAll('.filter-btn');
