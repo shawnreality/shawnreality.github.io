@@ -310,8 +310,8 @@ section {
 
 #profile {
   display: flex;
-  justify-content: center;
-  gap: 5rem;
+  justify-content: space-between;
+  gap: 2rem;
   min-height: auto;
   height: auto;
   background-color: var(--dark-bg);
@@ -355,6 +355,12 @@ section {
    * 以下样式是为了在没有个人照片的情况下维持布局
    * 如果恢复照片，可以考虑移除这些样式
    */
+  width: 400px;
+  height: 400px;
+  min-width: 400px;
+  flex: 0 0 400px;
+  margin-top: auto;
+  margin-bottom: auto;
   background-color: rgba(121, 200, 219, 0.05);
   border-radius: 50%;
   box-shadow: var(--shadow-light);
@@ -379,6 +385,8 @@ section {
   text-align: center;
   position: relative;
   z-index: 1;
+  width: 50%; /* 防止文本部分过宽 */
+  flex-grow: 0; /* 防止文本部分伸展 */
 }
 
 .section__text p {
@@ -964,11 +972,22 @@ footer .nav-links a {
   color: var(--primary-hover);
 }
 
+/* Video containers and embedded videos */
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   margin: 1rem 0;
+  overflow: hidden; /* Prevent content from spilling out */
+}
+
+/* 默认为iframe使用宽高比例盒子 */
+.video-container {
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+/* 为原生video容器添加特殊类 */
+.video-container.native-video {
+  padding-bottom: 0;
 }
 
 .video-container iframe {
@@ -979,6 +998,24 @@ footer .nav-links a {
   height: 100%;
   border-radius: 0.5rem;
   box-shadow: var(--shadow-light);
+}
+
+/* Add styling for native video elements */
+.video-container video,
+.modal-content video {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 70vh;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-light);
+  object-fit: contain;
+  display: block; /* Prevent inline spacing issues */
+}
+
+/* Force videos to stay in their container */
+.modal-content video {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .details-container.color-container {
@@ -1132,4 +1169,43 @@ footer .nav-links a {
 /* 也可以为具体的按钮类型设置 */
 .read-more {
   border-radius: 12px;  /* 更小的圆角 */
+}
+
+/* TYPEWRITER ANIMATION */
+.typewriter-container {
+  height: 1.75rem; /* Match the height of section__text__p2 */
+  margin-bottom: 1.8rem; /* 增加底部间距 */
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.typewriter-container .section__text__p2 {
+  margin-bottom: 0;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  width: 2px;
+  background-color: var(--primary-color);
+  animation: blink 0.7s infinite;
+  position: relative;
+  top: 0px; /* 调整垂直位置 */
+  height: 1em; /* 减小高度与文本行高更匹配 */
+  box-shadow: 0 0 5px var(--primary-color);
+  content: "";
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Ensure we have a fixed height to prevent layout shifts */
+#typewriter {
+  min-height: 1.75rem;
+  display: inline-block;
 }

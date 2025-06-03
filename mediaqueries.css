@@ -8,6 +8,23 @@
     padding-bottom: 6rem;
   }
   
+  /* 确保在大屏幕下球体大小位置固定 */
+  #profile .section__pic-container {
+    width: 400px;
+    height: 400px;
+    min-width: 400px;
+    flex: 0 0 400px;
+  }
+  
+  .typewriter-container {
+    height: 2rem;
+  }
+  
+  #typewriter {
+    min-height: 2rem;
+    font-size: 1.75rem;
+  }
+  
   .about-containers.project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -40,6 +57,17 @@
     border: none;
     backdrop-filter: blur(10px);
   }
+  
+  /* 调整profile与about连接处的过渡 */
+  #profile::after {
+    --profile-after-height: 120px; /* 默认大小 */
+    --profile-after-bottom: -70px; /* 默认位置 */
+  }
+  
+  #about {
+    margin-top: -70px; /* 与profile::after的bottom值匹配 */
+    padding-top: 90px; /* 确保内容不被遮挡 */
+  }
 }
 
 /* 中型显示器和平板横屏 (651px - 1200px) */
@@ -47,7 +75,37 @@
   #profile {
     min-height: auto;
     height: auto;
-    padding-bottom: 6rem;
+    padding: 4vh 6rem 8rem; /* 保持足够的底部空间 */
+    display: block; /* 将布局改为块级，与小屏幕一致 */
+  }
+  
+  /* 隐藏profile照片容器 */
+  #profile .section__pic-container {
+    /* 完全隐藏球体元素 */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none; /* 完全不显示元素 */
+  }
+  
+  /* 调整文本布局，使其占据全宽 */
+  #profile .section__text {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .typewriter-container {
+    height: 1.8rem;
+  }
+  
+  #typewriter {
+    min-height: 1.8rem;
+    font-size: 1.5rem;
   }
   
   /* About Me和Experience部分在平板尺寸就变为一列布局 */
@@ -94,6 +152,17 @@
     background: var(--card-gradient);
     border: none;
     backdrop-filter: blur(10px);
+  }
+  
+  /* 调整profile与about连接处的间距 */
+  #profile::after {
+    --profile-after-height: 100px; /* 增加高度 */
+    --profile-after-bottom: -50px; /* 调整位置 */
+  }
+  
+  #about {
+    margin-top: -50px; /* 与profile::after的bottom值匹配 */
+    padding-top: 70px; /* 增加顶部内边距，避免内容被遮挡 */
   }
 }
 
@@ -167,10 +236,21 @@
   
   /* 在没有照片的情况下调整文本布局 */
   #profile .section__text {
-    width: 100%;
+    width: 100%; /* 在小屏幕上占据全宽 */
     margin: 0 auto;
     padding: 2rem 0;
     text-align: center;
+    flex-grow: 1; /* 允许在小屏幕上伸展 */
+  }
+  
+  .typewriter-container {
+    height: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  #typewriter {
+    min-height: 1.5rem;
+    font-size: 1.3rem;
   }
   
   #profile .section__text__p1 {
@@ -366,10 +446,21 @@
   
   /* 在没有照片的情况下调整文本布局 */
   #profile .section__text {
-    width: 100%;
+    width: 100%; /* 在小屏幕上占据全宽 */
     margin: 0 auto;
     padding: 1rem 0 2rem; /* 小屏幕上减少上部内边距，增加底部内边距 */
     text-align: center;
+    flex-grow: 1; /* 允许在小屏幕上伸展 */
+  }
+  
+  .typewriter-container {
+    height: 1.3rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  #typewriter {
+    min-height: 1.3rem;
+    font-size: 1.25rem;
   }
   
   #profile .section__text__p1 {

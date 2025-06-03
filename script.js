@@ -112,10 +112,103 @@ function stopIframe() {
   iframes.forEach(function(iframe) {
     iframe.src = iframe.src;
   });
+  
+  // Also pause any HTML5 videos
+  var videos = document.querySelectorAll('video');
+  videos.forEach(function(video) {
+    video.pause();
+    // Reset video position
+    try {
+      video.currentTime = 0;
+    } catch(e) {
+      // Some browsers may throw an error if video isn't fully loaded
+      console.log("Couldn't reset video time");
+    }
+  });
+}
+
+// Enhanced modal handling
+function setupModalVideo(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  
+  const videos = modal.querySelectorAll('video');
+  const iframes = modal.querySelectorAll('iframe');
+  
+  // Handle videos when modal is opened
+  const btn = document.getElementById('btn' + modalId.replace('modal', ''));
+  if (btn) {
+    btn.addEventListener('click', function() {
+      // Delay playback slightly to ensure modal is fully visible
+      setTimeout(function() {
+        videos.forEach(function(video) {
+          // Set playback settings that help prevent auto-popout
+          video.setAttribute('playsinline', '');
+          video.setAttribute('disablePictureInPicture', '');
+          video.setAttribute('controlsList', 'nodownload');
+          video.play().catch(e => console.log("Auto-play prevented by browser"));
+        });
+      }, 300);
+    });
+  }
 }
 
 // 添加视差滚动效果
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize video modals
+  for (let i = 1; i <= 10; i++) {
+    setupModalVideo('modal' + i);
+  }
+  
+  // Typewriter animation for profile titles
+  const typewriterElement = document.getElementById('typewriter');
+  const titles = [
+    'Software Development Engineer',
+    'Mixed Reality Programmer',
+    'Immersive Tech Enthusiast',
+    'Prototyping the Future'
+  ];
+  
+  let titleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 80; // Slightly faster when typing for more natural feel
+  
+  function typeWriter() {
+    const currentTitle = titles[titleIndex];
+    
+    if (isDeleting) {
+      // Deleting text
+      typewriterElement.textContent = currentTitle.substring(0, charIndex - 1);
+      charIndex--;
+      typingSpeed = 30; // Even faster when deleting
+    } else {
+      // Typing text
+      typewriterElement.textContent = currentTitle.substring(0, charIndex + 1);
+      charIndex++;
+      typingSpeed = 80; // Slightly faster when typing for more natural feel
+    }
+    
+    // When completed typing current title
+    if (!isDeleting && charIndex === currentTitle.length) {
+      // Pause at the end of typing
+      isDeleting = true;
+      typingSpeed = 2500; // Wait for 2.5 seconds before starting to delete
+    } 
+    // When completed deleting current title
+    else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      titleIndex = (titleIndex + 1) % titles.length; // Move to next title
+      typingSpeed = 700; // Wait a bit longer before typing next title
+    }
+    
+    // Schedule the next animation frame
+    setTimeout(typeWriter, typingSpeed);
+  }
+  
+  // Start the typewriter animation
+  typeWriter();
+  
   // 平滑滚动效果 - 只保留一个滚动处理函数
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
