@@ -3,7 +3,8 @@
 /* 大型显示器 (1201px 及以上) */
 @media screen and (min-width: 1201px) {
   #profile {
-    height: 83vh;
+    min-height: 83vh;
+    height: auto;
     margin-bottom: 6rem;
   }
   
@@ -44,7 +45,8 @@
 /* 中型显示器和平板横屏 (651px - 1200px) */
 @media screen and (min-width: 651px) and (max-width: 1200px) {
   #profile {
-    height: 83vh;
+    min-height: 83vh;
+    height: auto;
     margin-bottom: 6rem;
   }
   
@@ -141,18 +143,27 @@
 /* 平板竖屏和手机设备 (650px 及以下) */
 @media screen and (max-width: 650px) {
   #profile {
-    height: 83vh;
+    min-height: 83vh;
+    height: auto;
     margin-bottom: 0;
     display: block;
-    padding: 4vh 5% 0; /* 确保在最小屏幕上也使用相同的内边距 */
-    overflow-x: hidden; /* 防止横向滚动 */
+    padding: 4vh 5% 6vh; /* 增加底部padding */
+    overflow-x: hidden;
+    position: relative; /* 确保定位上下文正确 */
   }
   
-  /* 确保图片容器在小屏幕上居中 */
+  /* 确保图片容器在小屏幕上居中且不会影响滚动 */
   .section__pic-container {
-    width: 250px; /* 略微减小尺寸以适应更小屏幕 */
+    width: 250px;
     height: 250px;
     margin: 0 auto 2rem;
+    position: relative; /* 确保定位正确 */
+  }
+  
+  /* 修改About部分设置，确保它可以正常接收滚动 */
+  #about {
+    position: relative;
+    z-index: 2; /* 略高于profile::after */
   }
   
   /* About Me部分在手机设备上变为一列布局 */

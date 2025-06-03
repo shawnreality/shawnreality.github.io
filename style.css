@@ -85,6 +85,10 @@ body {
     linear-gradient(to right, rgba(121, 200, 219, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(121, 200, 219, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* 防止横向滚动 */
+  height: auto; /* 允许内容自然展开 */
+  position: relative; /* 建立定位上下文 */
 }
 
 html {
@@ -121,6 +125,8 @@ nav {
   background-color: var(--dark-bg-lighter);
   box-shadow: var(--shadow-medium);
   border-bottom: none;
+  position: relative;
+  z-index: 100;
 }
 
 .nav-links {
@@ -185,6 +191,8 @@ a:hover::after {
 #hamburger-nav {
   display: none;
   box-shadow: var(--shadow-light);
+  position: relative;
+  z-index: 100; /* 增加移动端导航栏的z-index */
 }
 
 .hamburger-menu {
@@ -278,7 +286,7 @@ a:hover::after {
 section {
   padding-top: 4vh;
   height: auto;
-  min-height: 90vh;
+  min-height: fit-content;
   margin: 0 10rem;
   box-sizing: border-box;
   position: relative;
@@ -295,27 +303,29 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 90vh;
+  min-height: 90vh;
+  height: auto;
   background-color: var(--dark-bg);
   background-image: radial-gradient(circle at 10% 20%, rgba(121, 200, 219, 0.03) 0%, transparent 80%);
   margin: 0;
-  padding: 4vh 10rem 0;
+  padding: 4vh 10rem 4vh;
   box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  overflow: visible;
   z-index: 1;
+  overflow: visible;
 }
 
 /* 增强连接元素效果 */
 #profile::after {
   content: "";
   position: absolute;
-  bottom: -70px; /* 更大的延伸范围 */
+  bottom: -70px;
   left: 0;
   width: 100%;
-  height: 120px; /* 增加高度确保覆盖 */
+  height: 120px;
   background: linear-gradient(to bottom, var(--dark-bg), var(--dark-bg-lighter));
-  z-index: 0;
+  z-index: 1; /* 稍微提高z-index */
+  pointer-events: none; /* 确保该元素不会拦截鼠标事件 */
 }
 
 .section__pic-container {
@@ -507,8 +517,8 @@ section {
 
 #about {
   position: relative;
-  margin: -70px 0 0 0; /* 与profile::after的bottom值匹配 */
-  padding: 70px 10rem 8vh; /* 增加上padding来补偿margin负值 */
+  margin: -70px 0 0 0;
+  padding: 70px 10rem 8vh;
   min-height: 95vh;
   background-color: var(--dark-bg-lighter);
   background-image: 
@@ -516,7 +526,7 @@ section {
     linear-gradient(to bottom, rgba(121, 200, 219, 0.02) 1px, transparent 1px);
   background-size: 20px 20px;
   box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
-  z-index: 0;
+  z-index: 2; /* 确保比profile::after的z-index高 */
 }
 
 #about .parallax-decoration {
@@ -649,6 +659,7 @@ section {
   margin: 0;
   padding: 4vh 10rem;
   box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 3; /* 增加z-index，确保正确叠放 */
 }
 
 .experience-sub-title {
@@ -700,6 +711,7 @@ article .icon {
   margin: 0;
   padding: 4vh 10rem;
   box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 4; /* 增加z-index，确保正确叠放 */
 }
 
 /* 项目卡片网格布局 */
@@ -789,6 +801,7 @@ article .icon {
   margin: 0;
   padding: 4vh 10rem;
   box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 5; /* 增加z-index，确保正确叠放 */
 }
 
 .contact-info-upper-container {
