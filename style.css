@@ -80,6 +80,7 @@ body {
   background-color: var(--dark-bg);
   color: var(--text-color);
   line-height: 1.6;
+  overflow-x: hidden; /* 防止横向滚动 */
   background-image: 
     linear-gradient(to right, rgba(121, 200, 219, 0.02) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(121, 200, 219, 0.02) 1px, transparent 1px);

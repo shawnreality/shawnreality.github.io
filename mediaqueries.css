@@ -115,6 +115,10 @@
     display: block;
   }
   
+  #profile {
+    padding: 4vh 5% 0; /* 减少左右内边距，使用百分比适应不同屏幕宽度 */
+  }
+  
   .section__pic-container {
     width: 275px;
     height: 275px;
@@ -140,6 +144,15 @@
     height: 83vh;
     margin-bottom: 0;
     display: block;
+    padding: 4vh 5% 0; /* 确保在最小屏幕上也使用相同的内边距 */
+    overflow-x: hidden; /* 防止横向滚动 */
+  }
+  
+  /* 确保图片容器在小屏幕上居中 */
+  .section__pic-container {
+    width: 250px; /* 略微减小尺寸以适应更小屏幕 */
+    height: 250px;
+    margin: 0 auto 2rem;
   }
   
   /* About Me部分在手机设备上变为一列布局 */
