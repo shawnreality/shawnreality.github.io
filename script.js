@@ -121,3 +121,128 @@ function stopIframe() {
     iframe.src = iframe.src;
   });
 }
+
+// 添加视差滚动效果
+document.addEventListener('DOMContentLoaded', () => {
+  // 平滑滚动效果
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // 元素淡入效果
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+  
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // 项目过滤功能
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.details-container.color-container');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // 更新活动按钮状态
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // 获取过滤类别
+      const filterValue = button.getAttribute('data-filter');
+      
+      // 过滤项目
+      projectItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.style.display = 'flex';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 100);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+
+  // 图片预览功能
+  document.querySelectorAll('.project-img').forEach(img => {
+    img.addEventListener('click', () => {
+      const preview = document.createElement('div');
+      preview.className = 'image-preview';
+      preview.innerHTML = `
+        <div class="preview-content">
+          <img src="${img.src}" alt="${img.alt}">
+          <button class="close-preview">×</button>
+        </div>
+      `;
+      document.body.appendChild(preview);
+      
+      // 添加关闭事件
+      preview.querySelector('.close-preview').addEventListener('click', () => {
+        preview.style.opacity = '0';
+        setTimeout(() => {
+          preview.remove();
+        }, 300);
+      });
+
+      // 点击背景也关闭预览
+      preview.addEventListener('click', (e) => {
+        if (e.target === preview) {
+          preview.style.opacity = '0';
+          setTimeout(() => {
+            preview.remove();
+          }, 300);
+        }
+      });
+
+      // 按ESC键关闭预览
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          preview.style.opacity = '0';
+          setTimeout(() => {
+            preview.remove();
+          }, 300);
+        }
+      });
+    });
+  });
+
+  // 主题切换功能
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    
+    // 保存主题偏好到本地存储
+    if (document.body.classList.contains('light-mode')) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // 从本地存储加载主题设置
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+  }
+});

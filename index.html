@@ -39,6 +39,8 @@
       </div>
     </nav>
     <section id="profile">
+      <div class="parallax-decoration decoration-1"></div>
+      <div class="parallax-decoration decoration-2"></div>
       <div class="section__pic-container">
         <img src="./assets/profile-pic.png" alt="Shawn profile picture" />
       </div>
@@ -68,6 +70,8 @@
       </div>
     </section>
     <section id="about">
+      <div class="parallax-decoration decoration-2"></div>
+      <div class="parallax-decoration decoration-3"></div>
       <p class="section__text__p1">Get To Know More</p>
       <h1 class="title">About Me</h1>
       <div class="section-container">
@@ -118,6 +122,8 @@
       />
     </section>
     <section id="experience">
+      <div class="parallax-decoration decoration-1"></div>
+      <div class="parallax-decoration decoration-3"></div>
       <p class="section__text__p1">Explore My</p>
       <h1 class="title">Experience</h1>
       <div class="experience-details-container">
@@ -206,12 +212,23 @@
       />
     </section>
     <section id="projects">
+      <div class="parallax-decoration decoration-2"></div>
+      <div class="parallax-decoration decoration-3"></div>
       <p class="section__text__p1">Browse My Recent</p>
       <h1 class="title">Projects</h1>
+      
+      <!-- 添加项目过滤按钮 -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="vr">VR/AR</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+      </div>
+      
       <div class="experience-details-container">
         <div class="about-containers project-grid">
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/simulator-pic.png"
@@ -231,7 +248,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/HCI-pic.png"
@@ -245,7 +262,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/yumebau-pic.png"
@@ -259,7 +276,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/muralviewar-pic.png"
@@ -279,7 +296,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/Enchantia-pic.jpg"
@@ -299,7 +316,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/cubus-pic2.png"
@@ -319,7 +336,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="vr">
             <div class="article-container">
               <img
                 src="./assets/SceneSynthMR-pic3.jpg"
@@ -339,7 +356,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="game">
             <div class="article-container">
               <img
                 src="./assets/EcoGuardians2.jpg"
@@ -359,7 +376,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="web">
             <div class="article-container">
               <img
                 src="./assets/rootOS-pic.jpg"
@@ -379,7 +396,7 @@
             </div>
           </div>
 
-          <div class="details-container color-container">
+          <div class="details-container color-container fade-in" data-category="game">
             <div class="article-container">
               <img
                 src="./assets/echoes-pic.jpg"
@@ -409,6 +426,8 @@
       />
     </section>
     <section id="contact">
+      <div class="parallax-decoration decoration-1"></div>
+      <div class="parallax-decoration decoration-3"></div>
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
       <div class="contact-info-upper-container">
@@ -692,5 +711,11 @@
         </div>
       </div>
     </div>
+
+    <!-- 添加主题切换按钮 -->
+    <button id="theme-toggle" class="theme-toggle">
+      <i class="fa-solid fa-moon"></i>
+      <i class="fa-solid fa-sun"></i>
+    </button>
   </body>
 </html>
