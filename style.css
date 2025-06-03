@@ -1478,7 +1478,7 @@ html.modal-open {
 }
 
 .intro-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
   font-weight: 400;
@@ -1505,7 +1505,7 @@ html.modal-open {
 
 .bio-content p {
   margin-bottom: 1rem;
-  line-height: 1.7;
+  line-height: 1.3;
 }
 
 .tech-highlight {
