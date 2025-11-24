@@ -1,0 +1,524 @@
+/* 响应式布局样式 - VR科技风格 */
+
+/* 大型显示器 (1201px 及以上) */
+@media screen and (min-width: 1201px) {
+  #profile {
+    min-height: auto;
+    height: auto;
+    padding-bottom: 6rem;
+  }
+  
+  /* 确保在大屏幕下球体大小位置固定 */
+  #profile .section__pic-container {
+    width: 400px;
+    height: 400px;
+    min-width: 400px;
+    flex: 0 0 400px;
+  }
+  
+  .typewriter-container {
+    height: 2rem;
+  }
+  
+  #typewriter {
+    min-height: 2rem;
+    font-size: 1.75rem;
+  }
+  
+  .about-containers.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin: 2rem 0;
+  }
+  
+  #projects {
+    padding: 4rem 10rem;
+  }
+  
+  .article-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+  }
+  
+  article {
+    display: flex;
+    width: 10rem;
+    gap: 0.5rem;
+  }
+  
+  .modal-content {
+    margin: 5% auto;
+    width: 90%;
+    padding: 2rem;
+    background: var(--card-gradient);
+    border: none;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* 调整profile与about连接处的过渡 */
+  #profile::after {
+    --profile-after-height: 120px; /* 默认大小 */
+    --profile-after-bottom: -70px; /* 默认位置 */
+  }
+  
+  #about {
+    margin-top: -70px; /* 与profile::after的bottom值匹配 */
+    padding-top: 90px; /* 确保内容不被遮挡 */
+  }
+}
+
+/* 中型显示器和平板横屏 (651px - 1200px) */
+@media screen and (min-width: 651px) and (max-width: 1200px) {
+  #profile {
+    min-height: auto;
+    height: auto;
+    padding: 4vh 6rem 8rem; /* 保持足够的底部空间 */
+    display: block; /* 将布局改为块级，与小屏幕一致 */
+  }
+  
+  /* 隐藏profile照片容器 */
+  #profile .section__pic-container {
+    /* 完全隐藏球体元素 */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none; /* 完全不显示元素 */
+  }
+  
+  /* 调整文本布局，使其占据全宽 */
+  #profile .section__text {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .typewriter-container {
+    height: 1.8rem;
+  }
+  
+  #typewriter {
+    min-height: 1.8rem;
+    font-size: 1.5rem;
+  }
+  
+  /* About Me和Experience部分在平板尺寸就变为一列布局 */
+  .about-containers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  /* 项目部分保持两列 */
+  .about-containers.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  #projects {
+    padding: 4rem 5%;
+  }
+  
+  #about, #experience, #contact {
+    padding: 4vh 5%;
+  }
+  
+  .article-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+  }
+  
+  article {
+    display: flex;
+    width: 10rem;
+    gap: 0.5rem;
+  }
+  
+  .modal-content {
+    margin: 7% auto;
+    width: 90%;
+    padding: 1.5rem;
+    background: var(--card-gradient);
+    border: none;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* 调整profile与about连接处的间距 */
+  #profile::after {
+    --profile-after-height: 100px; /* 增加高度 */
+    --profile-after-bottom: -50px; /* 调整位置 */
+  }
+  
+  #about {
+    margin-top: -50px; /* 与profile::after的bottom值匹配 */
+    padding-top: 70px; /* 增加顶部内边距，避免内容被遮挡 */
+  }
+}
+
+/* 900px以下启用移动导航 */
+@media screen and (max-width: 900px) {
+  #desktop-nav {
+    display: none;
+  }
+  
+  #hamburger-nav {
+    display: flex;
+  }
+  
+  section {
+    margin: 0;
+    height: fit-content;
+  }
+  
+  #profile,
+  .section-container {
+    display: block;
+  }
+  
+  #profile {
+    padding: 8vh 5% 4vh; /* 增加顶部内边距，减少底部内边距 */
+    min-height: auto;
+    height: auto;
+  }
+  
+  /* 修改profile与about之间的连接 */
+  #profile::after {
+    --profile-after-height: 60px; /* 使用CSS变量 */
+    --profile-after-bottom: -30px; /* 使用CSS变量 */
+  }
+  
+  #about {
+    margin-top: -30px; /* 调整为与profile::after的bottom值匹配 */
+    padding-top: 50px; /* 确保内容不会被profile::after遮挡 */
+  }
+  
+  /* 确保图片容器在小屏幕上居中且不会影响滚动 */
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 2rem;
+    position: relative; /* 确保定位正确 */
+  }
+  
+  /* 为profile部分的照片容器设置特定样式 */
+  #profile .section__pic-container {
+    /* 在小屏幕上完全隐藏profile照片容器 */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none; /* 完全不显示元素 */
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+  
+  .arrow {
+    display: none;
+  }
+  
+  /* 在没有照片的情况下调整文本布局 */
+  #profile .section__text {
+    width: 100%; /* 在小屏幕上占据全宽 */
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+    flex-grow: 1; /* 允许在小屏幕上伸展 */
+  }
+  
+  .typewriter-container {
+    height: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  #typewriter {
+    min-height: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  #profile .section__text__p1 {
+    padding-top: 0; /* 移除顶部内边距，因为不再需要与照片对齐 */
+  }
+}
+
+/* 平板竖屏和手机设备 (650px 及以下) */
+@media screen and (max-width: 650px) {
+  #profile {
+    /* 移除固定最小高度，让内容自然拓展 */
+    min-height: auto;
+    height: auto;
+    margin-bottom: 0;
+    display: block;
+    padding: 6vh 5% 4vh; /* 调整内边距使布局更紧凑 */
+    position: relative;
+    /* 确保滚动正常 */
+    overflow: visible;
+    overscroll-behavior: none;
+  }
+  
+  /* 进一步调整profile和about之间的连接 */
+  #profile::after {
+    --profile-after-height: 40px; /* 使用CSS变量 */
+    --profile-after-bottom: -20px; /* 使用CSS变量 */
+  }
+  
+  #about {
+    margin-top: -20px; /* 与profile::after的bottom值匹配 */
+    padding-top: 40px; /* 确保内容不会被profile::after遮挡 */
+    padding-bottom: 4vh;
+    min-height: auto; /* 移除最小高度限制 */
+  }
+  
+  /* 确保图片容器在小屏幕上居中且不会影响滚动 */
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 2rem;
+    position: relative; /* 确保定位正确 */
+  }
+  
+  /* 为profile部分的照片容器设置特定样式 */
+  #profile .section__pic-container {
+    /* 在小屏幕上完全隐藏profile照片容器 */
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: none; /* 完全不显示元素 */
+  }
+  
+  /* 修改About部分设置，确保它可以正常接收滚动 */
+  #about {
+    position: relative;
+    z-index: 2; /* 略高于profile::after */
+    /* 确保滚动正常 */
+    overflow: visible;
+    overscroll-behavior: none;
+  }
+  
+  /* About Me部分在手机设备上变为一列布局 */
+  .about-containers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  
+  /* 项目卡片部分也是单列 */
+  .about-containers.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  
+  /* 确保section-container在手机上使用和平板相同的布局 */
+  .section-container {
+    display: block;
+  }
+  
+  #projects, #about, #experience, #contact {
+    padding: 4vh 5%;
+  }
+  
+  #desktop-nav {
+    display: none;
+  }
+  
+  #hamburger-nav {
+    display: flex;
+  }
+  
+  section {
+    margin: 0;
+    height: fit-content;
+  }
+  
+  #contact,
+  footer {
+    height: 40vh;
+  }
+  
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .contact-info-container {
+    margin: 0;
+  }
+  
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  
+  .contact-info-upper-container {
+    flex-wrap: wrap;
+  }
+  
+  .details-container.color-container {
+    padding: 1rem;
+  }
+  
+  .details-container {
+    width: 100%;
+  }
+  
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+  }
+  
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .modal-content {
+    margin: 15% auto;
+    width: 90%;
+    padding: 1rem;
+    background: var(--card-gradient);
+    border: none;
+    backdrop-filter: blur(10px);
+  }
+  
+  article {
+    font-size: 1rem;
+    width: 45%;
+    margin-bottom: 1rem;
+  }
+  
+  .article-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+  }
+  
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  
+  .text-container {
+    text-align: justify;
+  }
+  
+  /* 在没有照片的情况下调整文本布局 */
+  #profile .section__text {
+    width: 100%; /* 在小屏幕上占据全宽 */
+    margin: 0 auto;
+    padding: 1rem 0 2rem; /* 小屏幕上减少上部内边距，增加底部内边距 */
+    text-align: center;
+    flex-grow: 1; /* 允许在小屏幕上伸展 */
+  }
+  
+  .typewriter-container {
+    height: 1.3rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  #typewriter {
+    min-height: 1.3rem;
+    font-size: 1.25rem;
+  }
+  
+  #profile .section__text__p1 {
+    padding-top: 0;
+  }
+  
+  /* 调整标题大小，使其在小屏幕上显示更好 */
+  #profile .title {
+    font-size: 2.5rem;
+    margin: 0.5rem 0 1rem;
+  }
+  
+  #profile .section__text__p2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* 额外的全局设置 */
+section {
+  height: fit-content;
+}
+
+.arrow {
+  display: none;
+}
+
+/* 修复经验和联系部分的响应式布局 */
+@media screen and (max-width: 1200px) {
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+  
+  .article-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  
+  article {
+    font-size: 1rem;
+  }
+  
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  
+  .text-container {
+    text-align: justify;
+  }
+}
+
+

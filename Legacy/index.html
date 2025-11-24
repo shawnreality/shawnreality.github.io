@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/favicon.png">
+    <title>Shawn.io</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Portfolio</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Portfolio</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="parallax-decoration decoration-1"></div>
+      <div class="parallax-decoration decoration-2"></div>
+      <div class="section__pic-container">
+        <!-- 
+          暂时注释掉个人照片以解决移动端滚动问题
+          恢复方法:
+          1. 删除这段注释
+          2. 取消下面的img标签注释
+          3. 如果已经适应了没有照片的布局，可以考虑调整相关CSS:
+             - style.css中的.section__pic-container
+             - mediaqueries.css中针对不同屏幕尺寸的.section__pic-container
+        -->
+        <!-- <img src="./assets/profile-pic.png" alt="Shawn profile picture" /> -->
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p>
+        <h1 class="title">Shawn Gao</h1>
+        <div class="typewriter-container">
+          <p class="section__text__p2"><span id="typewriter"></span><span class="cursor"></span></p>
+        </div>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assets/Shawn_Gao_CV.pdf')"
+          >
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <a href="https://www.linkedin.com/in/shawngaosde" class="icon-link">
+            <i class="fa-brands fa-linkedin icon"></i>
+          </a>
+          <a href="https://github.com/shawnreality" class="icon-link">
+            <i class="fa-brands fa-github icon"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="parallax-decoration decoration-2"></div>
+      <div class="parallax-decoration decoration-3"></div>
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assets/about-pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="./assets/experience.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>2+ years <br />Unity/XR/Game Development </p>
+            </div>
+            <div class="details-container">
+              <img
+                src="./assets/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>B.Eng. Computer Science<br />Master of Digital Media<br />UBC | SFU | ECUAD | BCIT</p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p class="intro-text">
+              👋 Hi, I'm <span class="highlight-text">Shawn Gao</span> 
+            </p>
+            <p class="intro-subtitle">
+              A <strong>creative technologist</strong> passionate about interactive experiences
+            </p>
+            
+            <div class="bio-content">
+              <p>
+                With hands-on experience in <span class="tech-highlight">VR/AR</span> 🕶️, <span class="tech-highlight">robotics</span> 🤖, <span class="tech-highlight">web</span> 🌐, and <span class="tech-highlight">AI/ML</span> 🧠, I specialize in translating complex systems into intuitive user interactions.
+              </p>
+              
+              <p>
+                Proficient in <strong>C++, C#, Python, and Java</strong>, I enjoy bridging code and design—whether it's through real-time simulation, MR prototyping, or human-robot interfaces.
+              </p>
+              
+              <p>
+                I'm currently pursuing my Master's at <a href="https://thecdm.ca" target="_blank">Centre for Digital Media</a>, actively exploring how digital media and emerging technologies can empower human connection and creativity.
+              </p>
+            </div>
+            
+            <p class="call-to-action">
+              👉 Explore my work below, and let's build something impactful together.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <div class="parallax-decoration decoration-1"></div>
+      <div class="parallax-decoration decoration-3"></div>
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+      <div class="experience-details-container">
+        <div>
+          <h2 class="experience-sub-title">Programming Languages</h2>
+          <div class="article-container">
+            <div class="skill-item">
+              <span class="skill-name">C#</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">C++</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Java</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Swift</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="experience-sub-title">Core Technologies</h2>
+          <div class="article-container">
+            <div class="skill-item">
+              <span class="skill-name">Unity</span>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">SwiftUI</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">RealityKit</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Computer Vision</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Git & GitHub</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Interactive Design</span>
+              <span class="skill-level">Intermediate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <section id="projects">
+      <div class="parallax-decoration decoration-2"></div>
+      <div class="parallax-decoration decoration-3"></div>
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      
+      <!-- 添加项目过滤按钮 -->
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="vr">VR/AR</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="game">Games</button>
+      </div>
+      
+      <div class="experience-details-container">
+        <div class="about-containers project-grid">
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/simulator-pic.png"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">VR Automotive Training Simulator</h2>
+            <div class="btn-container">
+              <button id="btn1" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/V8UiYhWwvo0'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/HCI-pic.png"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">HCI System Based on Hand Gesture Recognition</h2>
+            <div class="btn-container">
+              <button id="btn2" class="btn btn-color-2 read-more">Read More</button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/yumebau-pic.png"
+                alt="Yumebau Project"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">MR Game with Yumebau</h2>
+            <div class="btn-container">
+              <button id="btn10" class="btn btn-color-2 read-more">Read More</button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/muralviewar-pic.png"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">MuralView AR</h2>
+            <div class="btn-container">
+              <button id="btn3" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/pHgnSxi_m_A'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/Enchantia-pic.jpg"
+                alt="Project 4"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Enchantia (Vision OS)</h2>
+            <div class="btn-container">
+              <button id="btn4" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Bmeng233/Enchantia'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/cubus-pic2.png"
+                alt="Project 5"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Cubus</h2>
+            <div class="btn-container">
+              <button id="btn5" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="vr">
+            <div class="article-container">
+              <img
+                src="./assets/SceneSynthMR-pic3.jpg"
+                alt="Project 6"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">SceneSynth MR</h2>
+            <div class="btn-container">
+              <button id="btn6" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Bmeng233/SceneSynth-MR'"
+              >
+                Github
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="game">
+            <div class="article-container">
+              <img
+                src="./assets/EcoGuardians2.jpg"
+                alt="Project 7"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">EcoGuardian</h2>
+            <div class="btn-container">
+              <button id="btn7" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/NZLirhEJdHY'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="web">
+            <div class="article-container">
+              <img
+                src="./assets/rootOS-pic.jpg"
+                alt="Project 8"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Root OS</h2>
+            <div class="btn-container">
+              <button id="btn8" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://chocolate-kami.itch.io/root-user'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+
+          <div class="details-container color-container fade-in" data-category="game">
+            <div class="article-container">
+              <img
+                src="./assets/echoes-pic.jpg"
+                alt="Project 9"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Echoes of The Gulf</h2>
+            <div class="btn-container">
+              <button id="btn9" class="btn btn-color-2 read-more">Read More</button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://youtu.be/dkmviB5JpeQ'"
+              >
+                YouTube
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
+    <section id="contact">
+      <div class="parallax-decoration decoration-1"></div>
+      <div class="parallax-decoration decoration-3"></div>
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <i class="fa-solid fa-envelope icon contact-icon email-icon"></i>
+          <p><a href="shawngaosde@outlook.com">shawngaosde@outlook.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <i class="fa-brands fa-linkedin icon contact-icon"></i>
+          <p><a href="https://www.linkedin.com/in/shawngaosde">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 Shawn Gao. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+
+    <!-- Project 1 -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>Automotive EV Training Simulator</h1>
+          <h3>Centre for Digital Media | Vancouver Community College</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Virtual Reality</span>
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">C#</span>
+            <span class="tech-tag">Oculus Quest</span>
+            <span class="tech-tag">Education</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              The Virtual Reality (VR) simulation developed for Vancouver Community College's Automotive Services represents a cutting-edge training tool 
+              tailored to the burgeoning field of electric vehicle (EV) maintenance and repair. This initiative aligns with Canada's legislative push towards 
+              zero-emission vehicles by 2035, addressing the critical need for skilled EV technicians. 
+              The simulation, crafted using Unity, provides an immersive learning environment where students can safely practice the processes involved in changing 
+              and repairing EV batteries. By circumventing the traditional constraints of physical training—which requires substantial instructor oversight due to the 
+              risks of injury, fire, and electrocution—our VR tool enables students to master complex skills in a controlled, hazard-free setting.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>
+              As the Lead Developer, I oversaw the technical aspects of the Virtual Reality (VR) simulation project, which was developed and tested on the Oculus Quest series. This choice utilized the platform's strong performance capabilities and broad accessibility. My primary focus was on ensuring a robust system, emphasizing code stability and smooth development collaboration.
+              <br><br>
+              From an architectural standpoint, I ensured the simulation was designed for scalability, anticipating future expansions to include various vehicle types and educational applications. The system architecture utilized the observer pattern and maintained a clear class inheritance structure, which allowed for efficient updates and extensions. Additionally, I facilitated effective communication with the UX Designer and the development team to ensure the project was delivered smoothly and accurately. Regular coordination and alignment of team efforts with project goals were essential, ensuring adherence to user experience principles and successful project execution.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Showcase</h4>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/V8UiYhWwvo0?si=UA9c7DxiLcmhAVH6&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>HCI System Based on Hand Gesture Recognition</h1>
+          <h3>Research | Thesis</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Computer Vision</span>
+            <span class="tech-tag">Haptic Feedback</span>
+            <span class="tech-tag">VR</span>
+            <span class="tech-tag">Yolo-v5</span>
+            <span class="tech-tag">Gesture Recognition</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              As part of my graduation thesis, this project focused on the integration of advanced computer vision and haptic feedback technologies into a cohesive virtual reality (VR) experience. The research involved implementing a computer vision recognition algorithm using the Yolo-v5 model to achieve real-time recognition of custom gestures. This was complemented by the development and testing of haptic feedback gloves, which were based on an open-source project.
+              <br><br>
+              I successfully adapted the hardware to interface seamlessly with the Oculus Quest and supported its functionality within the VR game, Half-Life: Alyx. This integration allowed for the real-time reconstruction of hand skeleton information, enhancing the immersive experience by providing tactile feedback corresponding to the user's movements and interactions within the game.
+              <br><br>
+              The culmination of this project was a comprehensive research paper that detailed the methodologies employed, the development process, and the implications of this technology in enhancing VR interactions. This work not only served as my graduation thesis but also contributed to the field of VR by demonstrating practical applications of machine learning in gesture recognition and tactile feedback technology.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container native-video">
+              <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload">
+                <source src="./assets/hic-vid2k.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 10 -->
+    <div id="modal10" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>MR Game with Yumebau</h1>
+          <h3>Centre for Digital Media | Yumebau Inc.</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Mixed Reality</span>
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">Spatial Mapping</span>
+            <span class="tech-tag">Meta Quest</span>
+            <span class="tech-tag">Game Development</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              This project is a mixed reality mini golf game created in collaboration with Yumebau Inc. The game overlays miniature golf courses onto real-world scanned environments, transforming users' physical surroundings into immersive gameplay arenas. Using passthrough features and environmental meshing, players can play golf on their furniture, walls, and more.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>
+              As the Unity developer, I implemented multiple obstacle mechanics with diverse physical behaviors, engineered user interaction logic, I also participated in resolving a key bug in the internal spatial mapping system and refactored factory pattern-based spawning for agile development.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Gallery</h4>
+            <img src="./assets/yumebau-pic-1.png" alt="Yumebau Gameplay Screenshot" />
+            <img src="./assets/yumebau-pic-ux.png" alt="Yumebau UX Design" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 3 -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>MuralView AR</h1>
+          <h3>Centre for Digital Media | AR App</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Augmented Reality</span>
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">Vuforia</span>
+            <span class="tech-tag">Android</span>
+            <span class="tech-tag">Art Preservation</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              The MuralView AR project was designed to elevate the experience of mural tours through the integration of Augmented Reality (AR) technology. As a developer on this project, I contributed to building an Android application using Unity and Vuforia Engine, specifically focused on enhancing users' engagement with murals. Our AR features allow users to view murals without physical view obstructions and provide a digital interaction layer that can reveal deeper insights into the artwork.
+              <br><br>
+              A key objective was to digitally preserve the murals and archive the artists' works for future AR showcases. This not only aids in conservation efforts but also makes art accessible to a broader audience, regardless of their physical location. Through the application, users can appreciate and interact with murals in a novel way, combining the real-world art with digital enhancements and information that enrich the viewing experience.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/pHgnSxi_m_A?si=aDXA83-d3Wco2JM1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 4 -->
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>Enchantia (Vision OS)</h1>
+          <h3>Personal Project | MR App</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Vision OS</span>
+            <span class="tech-tag">Swift</span>
+            <span class="tech-tag">RealityKit</span>
+            <span class="tech-tag">Apple Vision Pro</span>
+            <span class="tech-tag">Spatial Computing</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              Enchantia, a sophisticated floral arrangement simulator, was developed for Vision Pro using Vision OS. As the lead front-end developer, I played a crucial role in shaping the user experience and interface of the application, utilizing native Swift and RealityKit to ensure a seamless integration into the home environment. Users of Enchantia can propagate and arrange flowers in various vases, creatively enhancing their living spaces with virtual blooms that react to real-world conditions.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>My responsibilities included not only the aesthetic and functional aspects of the application's front-end but also the implementation of intuitive gesture interactions. These gestures allow users to interact naturally with the virtual elements, mimicking the tactile experience of handling real flowers. The application's immersive experience is designed to encourage creativity and bring a sense of tranquility and natural beauty into users' homes.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container native-video">
+              <video autoplay muted loop playsinline disablePictureInPicture controlsList="nodownload">
+                <source src="./assets/enchantia-vid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 5 -->
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>Cubus</h1>
+          <h3>Personal Project | VR/MR Game Prototype</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">VR</span>
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">Oculus Quest</span>
+            <span class="tech-tag">Hand Tracking</span>
+            <span class="tech-tag">Puzzle Game</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              Cubus is a personal project—a VR puzzle game developed independently for the Oculus Quest, drawing inspiration from the art movement "Cubism." This game challenges players to assemble increasingly complex shapes from colored blocks within a serene and relaxing virtual environment. The design focuses on simplicity and tranquility, complemented by soothing music that enhances the overall Zen-like vibe.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>
+              As the sole developer, I was responsible for all aspects of the game's design and development. The game capitalizes on the Oculus Quest's hand tracking technology, offering an intuitive and immersive experience that allows players to interact with the game elements in a natural, hands-on manner.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/3QA-nQHfKX0?si=7Po5VbD4LkwWoi0v&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 6 -->
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>SceneSynth MR</h1>
+          <h3>Centre for Digital Media | MR App</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Mixed Reality</span>
+            <span class="tech-tag">Meta Quest</span>
+            <span class="tech-tag">Passthrough</span>
+            <span class="tech-tag">AI Music</span>
+            <span class="tech-tag">Unity</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              SceneSynth MR is a mixed-reality prototype that revolutionizes AI music creation, developed for the Meta Quest using its passthrough feature to merge real and digital worlds. This immersive app allows users to generate music by inputting prompts, which are then visualized with vibrant MR visuals, enhancing the user experience. Unique to SceneSynth MR are collectible mascots, which vary based on the music and settings, adding a layer of personalization and fun. The platform also caters to Gen-Z's connectivity needs, positioning itself not just as an application but as a community for social interaction and engagement.
+              <br><br>
+              Developed in just four weeks, this prototype showcases the effective use of the Meta Quest's passthrough feature to create a compelling mixed-reality (MR) environment. This foundational work lays the groundwork for potential full-scale development, with future plans to more comprehensively integrate real-time generative AI music features into the MR framework.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>
+              As the lead developer, I was responsible for designing the core mechanics of the application and implementing the interactive features that drive the user experience. This included developing the music generation algorithm, integrating the passthrough feature, and creating the visual effects that enhance the MR environment. I also worked on optimizing the application for performance and user engagement, ensuring that it could run smoothly on the Meta Quest and provide an immersive and enjoyable experience for users.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/SkPFdLPHZHc?si=YAoZnBm7jjQ93e0g&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 7 -->
+    <div id="modal7" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>EcoGuardian</h1>
+          <h3>Centre for Digital Media | Game Prototype</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Education</span>
+            <span class="tech-tag">Unity</span>
+            <span class="tech-tag">3D Game</span>
+            <span class="tech-tag">Environmental</span>
+            <span class="tech-tag">Role-Playing</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              EcoGuardians is an innovative 3D role-playing game designed for children, developed using Unity to teach environmental stewardship in an engaging and interactive manner. Currently available as a prototype, the game introduces players to three distinct scenarios where they make choices that impact the environment. This foundational stage aims to inspire young players to make responsible decisions while highlighting the consequences of their actions.
+              <br><br>
+              As a versatile educational tool, EcoGuardians has the potential to evolve across multiple platforms, including websites, mobile games, AR/VR experiences, and even as part of interactive installations in educational centers. This adaptability ensures that the game can reach a broad audience and integrate seamlessly into various learning environments.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>
+              As the lead developer, I was responsible for designing the game mechanics and implementing the core gameplay features. This included developing the interactive scenarios, character animations, and environmental assets that bring the game world to life. I also worked on integrating educational content into the game, ensuring that players receive valuable information about environmental issues and conservation efforts.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/NZLirhEJdHY?si=RakQ_LdeqThAYnIJ&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 8 -->
+    <div id="modal8" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>Root OS</h1>
+          <h3>Personal Project | Game Prototype</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Web Development</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Simulation</span>
+            <span class="tech-tag">OS Design</span>
+            <span class="tech-tag">UI/UX</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              Root OS is a personal project that explores the development of a custom operating system for embedded devices. The project aims to create a lightweight and efficient operating system that can run on low-power devices such as IoT sensors and microcontrollers. Root OS is designed to provide a secure and stable platform for running custom applications and services.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <p>
+              As the lead developer on the project, I focused on designing the architecture and core components of the operating system. This involved developing a custom kernel, file system, and device drivers that could support a wide range of hardware configurations. I also worked on optimizing the operating system for performance and security, ensuring that it could run efficiently on resource-constrained devices.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Live Demo</h4>
+            <p>
+              <a href="https://chocolate-kami.itch.io/root-user" class="blue-link" target="_blank">Experience Root OS Live Demo</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- project 9 -->
+    <div id="modal9" class="modal">
+      <div class="modal-content">
+        <button class="close">&times;</button>
+        <div class="modal-header">
+          <p>Project</p>
+          <h1>Echoes of The Gulf</h1>
+          <h3>Personal Project | Historical RPG Prototype</h3>
+        </div>
+        <div class="modal-body">
+          <div class="tech-tags">
+            <span class="tech-tag">Narrative</span>
+            <span class="tech-tag">Role-Playing</span>
+            <span class="tech-tag">Historical</span>
+            <span class="tech-tag">Cultural Heritage</span>
+            <span class="tech-tag">Unity</span>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Project Description</h4>
+            <p>
+              <i>Echoes of The Gulf</i> is a narrative-driven historical RPG set in early 20th-century Vancouver's Fisherman's Wharf. The game tells the untold stories of Chinese immigrants seeking opportunity amidst systemic discrimination, cultural dislocation, and hardship. Through branching dialogue and role-playing mechanics, players experience the resilience, cultural identity, and community bonds of early Chinese Canadian settlers.
+            </p>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">My Contributions</h4>
+            <ul>
+              <li>Designed narrative systems with branching dialogue and player-driven consequences</li>
+              <li>Led user testing sessions and implemented feedback to improve emotional impact and pacing</li>
+              <li>Collaborated with historians to ensure historical accuracy and authentic representation</li>
+              <li>Developed character interaction systems and dialogue trees</li>
+            </ul>
+          </div>
+          
+          <div class="project-section">
+            <h4 class="project-section-title">Demonstration</h4>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dkmviB5JpeQ?si=x5QRYLqlzjdSbofN&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 添加主题切换按钮 -->
+    <button id="theme-toggle" class="theme-toggle">
+      <i class="fa-solid fa-moon"></i>
+      <i class="fa-solid fa-sun"></i>
+    </button>
+  </body>
+</html>
