@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import type { HTMLMotionProps } from "framer-motion";
 
 type DecryptedTextProps = {
   text: string;
@@ -15,7 +16,7 @@ type DecryptedTextProps = {
   parentClassName?: string;
   encryptedClassName?: string;
   animateOn?: "hover" | "view" | "both";
-} & React.HTMLAttributes<HTMLSpanElement>;
+} & Omit<HTMLMotionProps<"span">, "children">;
 
 const srOnly: React.CSSProperties = {
   position: "absolute",

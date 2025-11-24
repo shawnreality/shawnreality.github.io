@@ -7,15 +7,14 @@ import React, {
   createElement,
   useMemo,
   useCallback,
-  ComponentType,
-  HTMLAttributes,
 } from 'react';
+import type { ComponentType, HTMLAttributes, JSX, RefAttributes } from 'react';
 import { gsap } from 'gsap';
 import './TextType.css';
 
 type TextTypeProps = {
   text: string | string[];
-  as?: ComponentType<HTMLAttributes<HTMLElement>> | keyof JSX.IntrinsicElements;
+  as?: ComponentType<HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement>> | keyof JSX.IntrinsicElements;
   typingSpeed?: number;
   initialDelay?: number;
   pauseDuration?: number;
@@ -32,7 +31,7 @@ type TextTypeProps = {
   onSentenceComplete?: (text: string, index: number) => void;
   startOnVisible?: boolean;
   reverseMode?: boolean;
-} & HTMLAttributes<HTMLElement>;
+} & HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement>;
 
 const TextType: React.FC<TextTypeProps> = ({
   text,
@@ -110,7 +109,7 @@ const TextType: React.FC<TextTypeProps> = ({
   useEffect(() => {
     if (!isVisible) return;
 
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     const currentText = textArray[currentTextIndex];
     const processedText = reverseMode ? currentText.split('').reverse().join('') : currentText;
 
@@ -158,7 +157,9 @@ const TextType: React.FC<TextTypeProps> = ({
       executeTypingAnimation();
     }
 
-    return () => clearTimeout(timeout);
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     currentCharIndex,

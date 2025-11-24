@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, Moon, Sun } from "lucide-react";
-import { navLinks, profile } from "../data";
+import { navLinks } from "../data";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
