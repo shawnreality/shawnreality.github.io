@@ -24,7 +24,7 @@ export default function Navbar() {
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {
-            const headerOffset = 100; // 导航栏高度偏移
+            const headerOffset = 30; // 导航栏高度偏移
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
