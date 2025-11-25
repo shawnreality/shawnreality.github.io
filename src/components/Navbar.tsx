@@ -18,6 +18,23 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        e.preventDefault();
+        const targetId = href.replace('#', '');
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            const headerOffset = 100; // 导航栏高度偏移
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
         <header
             className={cn(
@@ -32,6 +49,7 @@ export default function Navbar() {
                         <a
                             key={link.name}
                             href={link.href}
+                            onClick={(e) => handleNavClick(e, link.href)}
                             className="font-semibold text-muted-foreground hover:text-primary transition-colors"
                         >
                             {link.name}
@@ -70,6 +88,7 @@ export default function Navbar() {
                                     <a
                                         key={link.name}
                                         href={link.href}
+                                        onClick={(e) => handleNavClick(e, link.href)}
                                         className="text-lg font-medium hover:text-primary transition-colors"
                                     >
                                         {link.name}
