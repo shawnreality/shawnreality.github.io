@@ -9,6 +9,7 @@ export interface Project {
     description?: string;
     contributions?: string;
     video?: string;
+    hideControls?: boolean;
     gallery?: string[];
 }
 
@@ -92,6 +93,7 @@ export const projects: Project[] = [
         subtitle: "Research | Thesis",
         image: "/assets/HCI-pic.png",
         video: "/assets/hic-vid2k.mp4",
+        hideControls: true,
         description: `As part of my graduation thesis, this project focused on the integration of advanced computer vision and haptic feedback technologies into a cohesive virtual reality (VR) experience. The research involved implementing a computer vision recognition algorithm using the Yolo-v5 model to achieve real-time recognition of custom gestures. This was complemented by the development and testing of haptic feedback gloves, which were based on an open-source project.
     
     I successfully adapted the hardware to interface seamlessly with the Oculus Quest and supported its functionality within the VR game, Half-Life: Alyx. This integration allowed for the real-time reconstruction of hand skeleton information, enhancing the immersive experience by providing tactile feedback corresponding to the user's movements and interactions within the game.

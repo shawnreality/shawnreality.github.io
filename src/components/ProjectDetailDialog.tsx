@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect } from "react";
 
 interface ProjectDetailDialogProps {
     isOpen: boolean;
@@ -11,12 +12,24 @@ interface ProjectDetailDialogProps {
         description?: string;
         contributions?: string;
         video?: string;
+        hideControls?: boolean;
         youtubeId?: string;
         gallery?: string[];
     } | null;
 }
 
 export default function ProjectDetailDialog({ isOpen, onClose, project }: ProjectDetailDialogProps) {
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isOpen]);
+
     if (!project) return null;
 
     return (
@@ -40,7 +53,7 @@ export default function ProjectDetailDialog({ isOpen, onClose, project }: Projec
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ duration: 0.2 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative bg-card border rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden"
+                            className="relative bg-card border rounded-lg shadow-lg max-w-5xl w-full max-h-[90vh] flex flex-col overflow-hidden"
                         >
                             {/* Header - sticky at top with close button and project title */}
                             <div className="sticky top-0 z-10 bg-card border-b">
@@ -93,7 +106,7 @@ export default function ProjectDetailDialog({ isOpen, onClose, project }: Projec
                                                 autoPlay
                                                 muted
                                                 loop
-                                                controls
+                                                controls={!project.hideControls}
                                                 playsInline
                                             >
                                                 <source src={project.video} type="video/mp4" />

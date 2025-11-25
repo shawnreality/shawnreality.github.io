@@ -1,5 +1,15 @@
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { 
+    Code2, 
+    Terminal, 
+    Cpu, 
+    Atom, 
+    Box, 
+    GitBranch, 
+    Globe, 
+    Zap,
+    LayoutTemplate
+} from "lucide-react";
 import { experience } from "@/data";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import DecryptedText from "@/components/DecryptedText";
@@ -12,6 +22,19 @@ const STREAMS = [
     { left: "86%", top: "62%", delay: "1.2s", text: "design <> dev" },
     { left: "70%", top: "78%", delay: "1.6s", text: "git flow / ci" },
 ];
+
+const getIcon = (name: string) => {
+    const n = name.toLowerCase();
+    if (n.includes("react") || n.includes("next")) return Atom;
+    if (n.includes("unity") || n.includes("three") || n.includes("3d")) return Box;
+    if (n.includes("c#") || n.includes("c++") || n.includes("java")) return Code2;
+    if (n.includes("git")) return GitBranch;
+    if (n.includes("shader") || n.includes("hlsl")) return Zap;
+    if (n.includes("script") || n.includes("python")) return Terminal;
+    if (n.includes("web") || n.includes("html") || n.includes("css")) return Globe;
+    if (n.includes("design") || n.includes("ui")) return LayoutTemplate;
+    return Cpu;
+};
 
 export default function Experience() {
     return (
@@ -114,27 +137,30 @@ export default function Experience() {
                                 <CardTitle className="text-2xl">Code foundations</CardTitle>
                             </CardHeader>
                             <CardContent className="relative grid sm:grid-cols-2 gap-3">
-                                {experience.languages.map((lang, index) => (
-                                    <div
-                                        key={index}
-                                        className="group relative overflow-hidden rounded-xl bg-foreground/[0.05] transition-all duration-300 shadow-sm hover:shadow-primary/10"
-                                    >
-                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-primary/15 via-primary/10 to-transparent transition-opacity" />
-                                        <div className="relative flex items-center gap-3 p-4">
-                                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 text-primary">
-                                                <CheckCircle2 className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-foreground">
-                                                    {lang.name}
-                                                </p>
-                                                <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                                                    {lang.level}
-                                                </p>
+                                {experience.languages.map((lang, index) => {
+                                    const Icon = getIcon(lang.name);
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="group relative overflow-hidden rounded-xl bg-foreground/[0.05] transition-all duration-300 shadow-sm hover:shadow-primary/10 hover:bg-foreground/[0.08]"
+                                        >
+                                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-primary/15 via-primary/10 to-transparent transition-opacity" />
+                                            <div className="relative flex items-center gap-4 p-4">
+                                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 backdrop-blur-md border border-primary/20 shadow-[0_0_15px_-3px_rgba(var(--primary),0.3)] text-primary group-hover:scale-110 transition-transform duration-300">
+                                                    <Icon className="h-6 w-6" />
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="font-semibold text-foreground truncate">
+                                                        {lang.name}
+                                                    </p>
+                                                    <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                                                        {lang.level}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </CardContent>
                         </Card>
                     </motion.div>
@@ -160,27 +186,30 @@ export default function Experience() {
                                 <CardTitle className="text-2xl">Interaction toolkit</CardTitle>
                             </CardHeader>
                             <CardContent className="relative grid sm:grid-cols-2 gap-3">
-                                {experience.skills.map((skill, index) => (
-                                    <div
-                                        key={index}
-                                        className="group relative overflow-hidden rounded-xl bg-foreground/[0.05] transition-all duration-300 shadow-sm hover:shadow-accent/10"
-                                    >
-                                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-accent/15 via-accent/10 to-transparent transition-opacity" />
-                                        <div className="relative flex items-center gap-3 p-4">
-                                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-foreground">
-                                                <CheckCircle2 className="h-5 w-5" />
-                                            </div>
-                                            <div className="flex-1">
-                                                <p className="font-semibold text-foreground">
-                                                    {skill.name}
-                                                </p>
-                                                <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                                                    {skill.level}
-                                                </p>
+                                {experience.skills.map((skill, index) => {
+                                    const Icon = getIcon(skill.name);
+                                    return (
+                                        <div
+                                            key={index}
+                                            className="group relative overflow-hidden rounded-xl bg-foreground/[0.05] transition-all duration-300 shadow-sm hover:shadow-accent/10 hover:bg-foreground/[0.08]"
+                                        >
+                                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-accent/15 via-accent/10 to-transparent transition-opacity" />
+                                            <div className="relative flex items-center gap-4 p-4">
+                                                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 backdrop-blur-md border border-accent/20 shadow-[0_0_15px_-3px_rgba(var(--accent),0.3)] text-foreground group-hover:scale-110 transition-transform duration-300">
+                                                    <Icon className="h-6 w-6" />
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <p className="font-semibold text-foreground truncate">
+                                                        {skill.name}
+                                                    </p>
+                                                    <p className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                                                        {skill.level}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </CardContent>
                         </Card>
                     </motion.div>
