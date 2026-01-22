@@ -27,7 +27,7 @@ export const profile = {
     socials: {
         linkedin: "https://www.linkedin.com/in/shawngao2000",
         github: "https://github.com/Bmeng233",
-        email: "shawngaodev@outlook.com",
+        email: "shawngaosde@outlook.com",
     },
     cvPath: "/assets/Shawn_Gao_CV.pdf", // Ensure this path is correct relative to public or imported
 };
@@ -177,6 +177,6 @@ export const projects: Project[] = [
 export const contact = {
     title: "Contact Me",
     subtitle: "Get in Touch",
-    email: "shawngaodev@outlook.com",
+    email: "shawngaosde@outlook.com",
     linkedin: "https://www.linkedin.com/in/shawngaosde",
 };
